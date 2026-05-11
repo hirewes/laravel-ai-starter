@@ -1,7 +1,7 @@
 services:
   web:
     build: ./docker/nginx
-    container_name: nginx_kanjiapp
+    container_name: nginx_laravel
     depends_on:
       - app
     ports: # normally 80:80
@@ -11,7 +11,7 @@ services:
       - ./app:/var/www/html
   app:
     build: ./docker/php
-    container_name: php_kanjiapp
+    container_name: php_laravel
     volumes:
       - ./docker/php/config/php.ini:/usr/local/etc/php/php.ini
       - ./app:/var/www/html
@@ -19,7 +19,7 @@ services:
     image: mysql:8.0.28
     command: --local-infile=1
     platform: linux/amd64
-    container_name: mysql_kanjiapp
+    container_name: mysql_laravel
     ports: # normally 3306:3306
       - "3307:3306"
     environment:
