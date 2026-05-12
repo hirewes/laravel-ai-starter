@@ -1,2 +1,17 @@
 docker/mysql/db/*
+docker/mysql/*.Zone.Identifier
+docker/nginx/**/*.Zone.Identifier
+docker/php/**/*.Zone.Identifier
+*:Zone.Identifier
+app/.env
+app/.env.backup
+app/.phpunit.result.cache
+app/node_modules/
+app/vendor/
+app/public/build/
+app/public/hot
+app/public/storage
+app/storage/*.key
 app/storage/logs/*
+.DS_Store
+*.log

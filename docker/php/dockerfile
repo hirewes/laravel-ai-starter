@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.3-fpm
 
 RUN apt-get update \
     && apt-get install -y \
@@ -11,6 +11,7 @@ RUN apt-get update \
         libmagickwand-dev \
         curl \
         unzip \
+        libonig-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" gd zip opcache pdo_mysql bcmath \
     && pecl install imagick \
@@ -26,3 +27,5 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
+
+WORKDIR /var/www/html

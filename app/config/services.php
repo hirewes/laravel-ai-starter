@@ -30,4 +30,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'openai' => [
+        'api_key' => env('OPENAI_API_KEY'),
+        'organization' => env('OPENAI_ORGANIZATION'),
+        'project' => env('OPENAI_PROJECT'),
+        'model' => env('OPENAI_MODEL', 'gpt-4o-mini'),
+        'temperature' => env('OPENAI_TEMPERATURE', 0.7),
+        'base_url' => env('OPENAI_BASE_URL'),
+    ],
+
 ];
